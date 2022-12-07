@@ -1,7 +1,20 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+const withSvgr = require("next-svgr");
 
-module.exports = nextConfig
+const nextConfig = withSvgr({
+	reactStrictMode: true,
+	swcMinify: true,
+	compiler: {
+		styledComponents: true,
+	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "i.picsum.photos",
+			},
+		],
+	},
+});
+
+module.exports = nextConfig;
