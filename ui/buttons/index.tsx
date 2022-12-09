@@ -12,6 +12,7 @@ export const MainButton = styled.button`
 	margin: 0;
 	border: none;
 	border-radius: 8px;
+	cursor: pointer;
 `;
 
 export const SecondaryButton = styled(MainButton)`
