@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Content = styled.div`
 	width: 100%;
 	height: 100vh;
-	background-color: ${(props) => props.color || "black"};
+	background-color: ${(props) => props.color};
 	display: ${(props) => props.defaultValue};
 	flex-direction: column;
 	justify-content: space-between;

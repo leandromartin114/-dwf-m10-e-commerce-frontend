@@ -3,12 +3,15 @@ import { useState } from "react";
 import { Container, Content, List, Item, SesionContent } from "./styled";
 import { SubTitle, Body, LargeText } from "ui/typography";
 import { MenuIcon, XIcon } from "ui/icons";
+import { useMe } from "lib/hooks";
 
-export function Menu({ background = "black", text = "white" }: any) {
+export function Menu({ background, text }: any) {
 	const [open, setOpen] = useState(false);
 	function handleToggle() {
 		setOpen(!open);
 	}
+	const data = useMe();
+	const email = data.email;
 
 	return (
 		<Container>
@@ -38,7 +41,7 @@ export function Menu({ background = "black", text = "white" }: any) {
 					</Item>
 				</List>
 				<SesionContent>
-					<Body color='white'>leandrito@email.com</Body>
+					<Body color='white'>{email}</Body>
 					<LargeText color='var(--fucsia)'>Cerrar sesión</LargeText>
 				</SesionContent>
 			</Content>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Title = styled.h1`
 	font-size: 48px;
 	font-weight: 700;
+	text-align: center;
 	margin: 0;
 	color: ${(props) => props.color || "black"};
 `;
@@ -10,6 +11,7 @@ export const Title = styled.h1`
 export const SubTitle = styled.h2`
 	font-size: 32px;
 	font-weight: 700;
+	text-align: center;
 	margin: 0;
 	color: ${(props) => props.color || "black"};
 `;

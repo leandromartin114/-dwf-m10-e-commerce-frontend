@@ -5,4 +5,5 @@ export const Container = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	padding: 0px 10px;
+	background-color: ${(props) => props.color};
 `;

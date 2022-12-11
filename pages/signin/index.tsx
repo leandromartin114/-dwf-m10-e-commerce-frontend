@@ -1,7 +1,10 @@
 import Head from "next/head";
 import { Layout } from "components/layout";
+import { Signin } from "components/form-signin";
+import { Content } from "./styled";
+import { Title } from "ui/typography";
 
-export default function ItemPage() {
+export default function SigninPage() {
 	return (
 		<div>
 			<Head>
@@ -10,7 +13,10 @@ export default function ItemPage() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Layout>
-				<h1>Item Page</h1>
+				<Content>
+					<Title>Signin</Title>
+					<Signin />
+				</Content>
 			</Layout>
 		</div>
 	);

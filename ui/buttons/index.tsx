@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const MainButton = styled.button`
+	width: 100%;
 	background-color: var(--blue);
 	display: flex;
 	align-items: center;
-	text-align: center;
+	justify-content: center;
 	color: white;
 	font-size: 16px;
 	font-weight: 700;

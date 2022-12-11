@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Layout } from "components/layout";
 
-export default function ItemPage() {
+export default function SignupPage() {
 	return (
 		<div>
 			<Head>
@@ -10,7 +10,7 @@ export default function ItemPage() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Layout>
-				<h1>Item Page</h1>
+				<h1>Signup Page</h1>
 			</Layout>
 		</div>
 	);

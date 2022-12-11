@@ -2,8 +2,12 @@ import Link from "next/link";
 import { Container, List, Item, SesionContent } from "./styled";
 import { Body, LargeText, LargeTextBold } from "ui/typography";
 import { SecondaryButton } from "ui/buttons";
+import { useMe } from "lib/hooks";
 
-export function MenuDesktop({ text = "white" }: any) {
+export function MenuDesktop({ text }: any) {
+	const data = useMe();
+	const email = data.email;
+
 	return (
 		<Container>
 			<List>
@@ -29,7 +33,7 @@ export function MenuDesktop({ text = "white" }: any) {
 				</Item>
 			</List>
 			<SesionContent>
-				<Body color='white'>leandrito@email.com</Body>
+				<Body color='white'>{email}</Body>
 				<LargeText color='var(--fucsia)'>Cerrar sesión</LargeText>
 			</SesionContent>
 		</Container>

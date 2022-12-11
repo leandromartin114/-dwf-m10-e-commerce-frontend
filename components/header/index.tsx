@@ -3,12 +3,12 @@ import { MenuDesktop } from "components/menu-desktop";
 import { LogoIcon } from "ui/icons";
 import { Container } from "./styled";
 
-export function Header() {
+export function Header({ background = "black", text = "white" }: any) {
 	return (
-		<Container>
+		<Container color={background}>
 			<LogoIcon />
-			<Menu />
-			<MenuDesktop />
+			<Menu background={background} text={text} />
+			<MenuDesktop text={text} />
 		</Container>
 	);
 }
