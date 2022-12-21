@@ -1,17 +1,38 @@
 import Link from "next/link";
-import { useState } from "react";
-import { Container, Content, List, Item, SesionContent } from "./styled";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { Container, Content, List, Item, SessionContent } from "./styled";
 import { SubTitle, Body, LargeText } from "ui/typography";
 import { MenuIcon, XIcon } from "ui/icons";
-import { useMe } from "lib/hooks";
+import { useEmailValue, useTokenValeu, useEmail, useToken } from "lib/hooks";
 
 export function Menu({ background, text }: any) {
 	const [open, setOpen] = useState(false);
+	const [logged, setLogged] = useState(false);
+	const [email, setEmail] = useEmail();
+	const [token, setToken] = useToken();
+	const emailValue = useEmailValue();
+	const tokenValue = useTokenValeu();
+	const router = useRouter();
+
 	function handleToggle() {
 		setOpen(!open);
 	}
-	const data = useMe();
-	const email = data.email;
+
+	function logOut() {
+		setEmail("");
+		setToken("");
+		router.push("/");
+		handleToggle();
+	}
+
+	useEffect(() => {
+		if (tokenValue) {
+			setLogged(true);
+		} else {
+			setLogged(false);
+		}
+	}, [tokenValue]);
 
 	return (
 		<Container>
@@ -20,7 +41,7 @@ export function Menu({ background, text }: any) {
 				<XIcon onClick={handleToggle} color='white' />
 				<List>
 					<Item>
-						<Link href={"/signin"} passHref>
+						<Link href={tokenValue ? "/profile" : "/signin"} passHref>
 							<SubTitle color={text}>Sign in</SubTitle>
 						</Link>
 					</Item>
@@ -40,10 +61,16 @@ export function Menu({ background, text }: any) {
 						</Link>
 					</Item>
 				</List>
-				<SesionContent>
-					<Body color='white'>{email}</Body>
-					<LargeText color='var(--fucsia)'>Cerrar sesión</LargeText>
-				</SesionContent>
+				<SessionContent defaultValue={logged ? "inherit" : "none"}>
+					<Body color='white'>{logged ? emailValue : ""}</Body>
+					<LargeText
+						onClick={logOut}
+						color='var(--fucsia)'
+						style={{ cursor: "pointer" }}
+					>
+						Cerrar sesión
+					</LargeText>
+				</SessionContent>
 			</Content>
 		</Container>
 	);

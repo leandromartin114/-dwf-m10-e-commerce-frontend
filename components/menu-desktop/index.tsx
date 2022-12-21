@@ -1,12 +1,32 @@
 import Link from "next/link";
-import { Container, List, Item, SesionContent } from "./styled";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { Container, List, Item, SessionContent } from "./styled";
 import { Body, LargeText, LargeTextBold } from "ui/typography";
 import { SecondaryButton } from "ui/buttons";
-import { useMe } from "lib/hooks";
+import { useEmailValue, useTokenValeu, useEmail, useToken } from "lib/hooks";
 
 export function MenuDesktop({ text }: any) {
-	const data = useMe();
-	const email = data.email;
+	const [logged, setLogged] = useState(false);
+	const [email, setEmail] = useEmail();
+	const [token, setToken] = useToken();
+	const emailValue = useEmailValue();
+	const tokenValue = useTokenValeu();
+	const router = useRouter();
+
+	function logOut() {
+		setEmail("");
+		setToken("");
+		router.push("/");
+	}
+
+	useEffect(() => {
+		if (tokenValue) {
+			setLogged(true);
+		} else {
+			setLogged(false);
+		}
+	}, [tokenValue]);
 
 	return (
 		<Container>
@@ -17,7 +37,7 @@ export function MenuDesktop({ text }: any) {
 					</Link>
 				</Item>
 				<Item>
-					<Link href={"/signin"} passHref>
+					<Link href={tokenValue ? "/profile" : "/signin"} passHref>
 						<LargeTextBold color='var(--lightblue)'>Sign in</LargeTextBold>
 					</Link>
 				</Item>
@@ -32,10 +52,16 @@ export function MenuDesktop({ text }: any) {
 					</Link>
 				</Item>
 			</List>
-			<SesionContent>
-				<Body color='white'>{email}</Body>
-				<LargeText color='var(--fucsia)'>Cerrar sesión</LargeText>
-			</SesionContent>
+			<SessionContent defaultValue={logged ? "inherit" : "none"}>
+				<Body color='white'>{logged ? emailValue : ""}</Body>
+				<LargeText
+					onClick={logOut}
+					color='var(--fucsia)'
+					style={{ cursor: "pointer" }}
+				>
+					Cerrar sesión
+				</LargeText>
+			</SessionContent>
 		</Container>
 	);
 }

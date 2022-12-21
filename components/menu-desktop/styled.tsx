@@ -24,8 +24,12 @@ export const Item = styled.li`
 	margin: 0px 15px;
 `;
 
-export const SesionContent = styled.div`
+export const SessionContent = styled.div`
 	text-align: center;
 	cursor: pointer;
 	margin: 0px 15px;
+	display: ${(props) => props.defaultValue};
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 `;

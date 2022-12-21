@@ -10,11 +10,23 @@ export const Input = styled.input`
 	border: 3px solid black;
 	border-radius: 8px;
 `;
-export function TextField({ label, placeholder, type, name }: any) {
+export function TextField({
+	register,
+	required,
+	error,
+	id,
+	label,
+	...inputProps
+}: any) {
 	return (
 		<label>
-			<Label>{label}</Label>
-			<Input placeholder={placeholder} type={type} name={name} />
+			{label ? <Label>{label}</Label> : null}
+			<Input
+				{...register(id, { required: required })}
+				id={id}
+				{...inputProps}
+			/>
+			{error && <span>this field is required</span>}
 		</label>
 	);
 }

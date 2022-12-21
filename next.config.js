@@ -11,7 +11,8 @@ const nextConfig = withSvgr({
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "i.picsum.photos",
+				hostname: "dl.airtable.com",
+				pathname: "/.attachments/**",
 			},
 		],
 	},

@@ -1,5 +1,9 @@
 import Head from "next/head";
 import { Layout } from "components/layout";
+import { FeaturedProducts } from "components/featured-products";
+import { Search } from "components/form-search";
+import { Title } from "ui/typography";
+import { Container, MainSection } from "./styled";
 
 export default function Home() {
 	return (
@@ -10,7 +14,13 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Layout>
-				<h1>Home Page</h1>
+				<Container>
+					<MainSection>
+						<Title>Find that product you want so much</Title>
+						<Search />
+					</MainSection>
+					<FeaturedProducts />
+				</Container>
 			</Layout>
 		</div>
 	);

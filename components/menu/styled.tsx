@@ -40,6 +40,10 @@ export const Item = styled.li`
 	margin: 0;
 `;
 
-export const SesionContent = styled.div`
+export const SessionContent = styled.div`
 	text-align: center;
+	display: ${(props) => props.defaultValue};
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 `;
