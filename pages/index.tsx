@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Layout } from "components/layout";
 import { FeaturedProducts } from "components/featured-products";
-import { Search } from "components/form-search";
+import { SearchForm } from "components/form-search";
 import { Title } from "ui/typography";
 import { Container, MainSection } from "./styled";
 
@@ -16,8 +16,10 @@ export default function Home() {
 			<Layout>
 				<Container>
 					<MainSection>
-						<Title>Find that product you want so much</Title>
-						<Search />
+						<Title>
+							We have awsome chairs, tables, and rugs waiting for you
+						</Title>
+						<SearchForm type='main' />
 					</MainSection>
 					<FeaturedProducts />
 				</Container>

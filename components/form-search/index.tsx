@@ -1,11 +1,10 @@
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { TextField } from "ui/text-field";
-import { MainButton } from "ui/buttons";
-import { Form } from "./styled";
-import Swal from "sweetalert2";
+import { MainButton, SecondaryButton } from "ui/buttons";
+import { MainForm, SecondaryForm } from "./styled";
 
-export function Search() {
+export function SearchForm({ type }: any) {
 	const router = useRouter();
 
 	const {
@@ -18,25 +17,39 @@ export function Search() {
 	async function handleSearch(data: any) {
 		const query = data.query;
 		try {
-			console.log(query);
+			router.push("/search/" + query);
 		} catch (error) {
 			console.log(error);
 		}
 		reset();
 	}
 
-	return (
-		<Form onSubmit={handleSubmit(handleSearch)}>
+	return type == "main" ? (
+		<MainForm onSubmit={handleSubmit(handleSearch)}>
 			<TextField
 				type='text'
 				id='query'
 				name='query'
-				placeholder='search...'
+				placeholder='search your products...'
 				register={register}
 				required={true}
 				error={errors.query}
 			/>
 			<MainButton type='submit'>Search</MainButton>
-		</Form>
+		</MainForm>
+	) : (
+		<SecondaryForm onSubmit={handleSubmit(handleSearch)}>
+			<TextField
+				color='black'
+				type='text'
+				id='query'
+				name='query'
+				placeholder='search your products...'
+				register={register}
+				required={true}
+				error={errors.query}
+			/>
+			<SecondaryButton type='submit'>Search</SecondaryButton>
+		</SecondaryForm>
 	);
 }

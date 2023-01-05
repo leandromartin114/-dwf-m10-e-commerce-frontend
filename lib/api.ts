@@ -1,21 +1,18 @@
 const API_BASE_URL = "https://myfreemarket.vercel.app/api";
 
-export async function fetchAPI(
-	input: RequestInfo,
-	options: any,
-	token?: string
-) {
+export async function fetchAPI(input: RequestInfo, options: any, token?: any) {
 	const url = API_BASE_URL + input;
 	const newOptions = options || {};
 	newOptions.headers ||= {};
 	newOptions.headers["Content-Type"] = "application/json";
-	if (token) {
-		newOptions.headers.Authorization = "bearer " + token;
-	}
 	if (newOptions.body) {
 		newOptions.body = JSON.stringify(newOptions.body);
 	}
+	if (token) {
+		newOptions.headers.Authorization = "bearer " + token;
+	}
 	const res = await fetch(url, newOptions);
+
 	if (res.status >= 200 && res.status < 300) {
 		return res.json();
 	} else {
@@ -44,5 +41,31 @@ export async function signupUser(userData: {}) {
 		method: "POST",
 		body: { ...userData },
 	});
+	return data;
+}
+
+export async function createOrder(token: string, items: any) {
+	const data = await fetchAPI(
+		"/order",
+		{
+			method: "POST",
+			body: items,
+		},
+		token
+	);
+	return data;
+}
+
+export async function fetchUserData(input: RequestInfo) {
+	const localData = sessionStorage.getItem("local_data");
+	const parsedData = JSON.parse(localData as string);
+	const token = parsedData.auth_token;
+	const data = await fetchAPI(
+		input,
+		{
+			method: "GET",
+		},
+		token
+	);
 	return data;
 }

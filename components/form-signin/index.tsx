@@ -6,6 +6,7 @@ import { TextField } from "ui/text-field";
 import { MainButton } from "ui/buttons";
 import { Form } from "./styled";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 export function Signin() {
 	const [email, setEmail] = useEmail();
@@ -40,6 +41,12 @@ export function Signin() {
 		}
 		reset();
 	}
+
+	useEffect(() => {
+		if (token) {
+			router.push("/profile");
+		}
+	});
 
 	async function handleLogin(data: any) {
 		const code = data.code;

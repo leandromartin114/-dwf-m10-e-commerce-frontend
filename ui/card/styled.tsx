@@ -7,13 +7,14 @@ export const Container = styled.div`
 	border-radius: 8px;
 	width: 288px;
 	height: 282px;
+	cursor: pointer;
 `;
 
 export const TextContent = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 10px 5px;
+	padding: 5px 3px;
 	background-color: ${(props) => props.color || "var(--fucsia)"};
 	width: 100%;
 `;

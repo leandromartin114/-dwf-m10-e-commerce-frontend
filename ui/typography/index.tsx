@@ -11,7 +11,7 @@ export const Title = styled.h1`
 export const SubTitle = styled.h2`
 	font-size: 32px;
 	font-weight: 700;
-	text-align: center;
+	text-align: left;
 	margin: 0;
 	color: ${(props) => props.color || "black"};
 `;

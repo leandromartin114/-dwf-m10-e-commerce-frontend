@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-	display: inherit;
+	display: flex;
+	align-items: center;
+	width: 70px;
+	justify-content: space-between;
 	@media (min-width: 769px) {
 		display: none;
 	}

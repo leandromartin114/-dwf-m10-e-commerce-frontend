@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import useSWRImmutable from "swr/immutable";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { fetchAPI } from "./api";
-import { emailAtom, tokenAtom, userAtom } from "./atoms";
+import { fetchAPI, fetchUserData } from "./api";
+import { emailAtom, tokenAtom, userAtom, cartAtom } from "./atoms";
 
 export function useEmail(): [
 	string,
@@ -38,9 +38,14 @@ export function useUserData(): [
 	return [user, setUser];
 }
 
-export function useMe() {
-	const { data, error } = useSWR("/me", fetchAPI);
-	return data;
+export function useCart(): [any, React.Dispatch<React.SetStateAction<any>>] {
+	const [cart, setCart] = useRecoilState(cartAtom);
+	return [cart, setCart];
+}
+
+export function useCartValeu(): any {
+	const cart = useRecoilValue(cartAtom);
+	return cart;
 }
 
 export function useProducts() {
@@ -51,7 +56,20 @@ export function useProducts() {
 	return data;
 }
 
-export function useProductById(productId: string) {
+export function useProductById(productId: any) {
 	const { data, error } = useSWRImmutable("/products/" + productId, fetchAPI);
+	return data;
+}
+
+export function useSearchProduct(query: string) {
+	const { data, error } = useSWR(
+		"/search?q=" + query + "&offset=0&limit=30",
+		fetchAPI
+	);
+	return data;
+}
+
+export function useMe() {
+	const { data, error } = useSWR("/me", fetchUserData);
 	return data;
 }

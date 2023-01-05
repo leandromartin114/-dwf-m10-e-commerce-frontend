@@ -14,6 +14,11 @@ const nextConfig = withSvgr({
 				hostname: "dl.airtable.com",
 				pathname: "/.attachments/**",
 			},
+			{
+				protocol: "https",
+				hostname: "v5.airtableusercontent.com",
+				pathname: "/v1/**",
+			},
 		],
 	},
 });
