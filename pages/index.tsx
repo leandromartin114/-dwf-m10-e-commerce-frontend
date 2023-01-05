@@ -3,7 +3,7 @@ import { Layout } from "components/layout";
 import { FeaturedProducts } from "components/featured-products";
 import { SearchForm } from "components/form-search";
 import { Title } from "ui/typography";
-import { Container, MainSection } from "./styled";
+import { Container, MainSection } from "../styles/home";
 
 export default function Home() {
 	return (

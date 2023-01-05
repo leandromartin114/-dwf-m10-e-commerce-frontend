@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Layout } from "components/layout";
 import { Signin } from "components/form-signin";
-import { Content } from "./styled";
+import { Content } from "../../styles/signin";
 import { Title } from "ui/typography";
 
 export default function SigninPage() {

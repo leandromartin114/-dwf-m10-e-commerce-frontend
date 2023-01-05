@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Layout } from "components/layout";
 import { Signup } from "components/form-signup";
-import { Content } from "./styled";
+import { Content } from "../../styles/signup";
 import { Title } from "ui/typography";
 
 export default function SignupPage() {

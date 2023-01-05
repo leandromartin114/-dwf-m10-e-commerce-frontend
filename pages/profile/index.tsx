@@ -4,7 +4,7 @@ import { Profile } from "components/form-profile";
 import { Title } from "ui/typography";
 import { ProfileSwitch } from "ui/profile-switch";
 import { useState } from "react";
-import { Container } from "./styled";
+import { Container } from "../../styles/profile";
 import { MyOrders } from "components/orders";
 
 export default function ProfilePage() {
