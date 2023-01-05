@@ -69,3 +69,18 @@ export async function fetchUserData(input: RequestInfo) {
 	);
 	return data;
 }
+
+export async function modifyUserData(body: any) {
+	const localData = sessionStorage.getItem("local_data");
+	const parsedData = JSON.parse(localData as string);
+	const token = parsedData.auth_token;
+	const data = await fetchAPI(
+		"/me",
+		{
+			method: "PATCH",
+			body: body,
+		},
+		token
+	);
+	return data;
+}

@@ -14,6 +14,13 @@ export const LogoIcon = styled(Logo)`
 	cursor: pointer;
 `;
 
+export const BigLogoIcon = styled(Logo)`
+	fill: #4f7cac;
+	width: 105px;
+	height: 105px;
+	cursor: pointer;
+`;
+
 export const MenuIcon = styled(Menu)`
 	width: 30px;
 	height: 30px;

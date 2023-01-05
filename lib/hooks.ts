@@ -73,3 +73,8 @@ export function useMe() {
 	const { data, error } = useSWR("/me", fetchUserData);
 	return data;
 }
+
+export function useMeOrders() {
+	const { data, error } = useSWR("/me/orders", fetchUserData);
+	return data;
+}
