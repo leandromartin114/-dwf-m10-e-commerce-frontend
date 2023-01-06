@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import { ItemCard } from "ui/item-card";
-import { useProductById, useCart, useTokenValeu } from "lib/hooks";
+import { useCart, useTokenValeu } from "lib/hooks";
 import { useEffect, useState } from "react";
 import { Container } from "./styled";
 import Swal from "sweetalert2";
 
-export function Item({ itemId }: any) {
+export function Item({ itemData }: any) {
 	const router = useRouter();
-	const detail = useProductById(itemId);
+	const detail = itemData;
 	const token = useTokenValeu();
 	const [product, setProduct] = useState<any>({});
 	const [cart, setCart] = useCart();

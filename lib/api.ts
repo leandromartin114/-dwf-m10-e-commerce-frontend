@@ -96,3 +96,10 @@ export async function fetchFeaturedProducts() {
 	});
 	return data;
 }
+
+export async function fetchItemById(id: string) {
+	const data = await fetchAPI("/products/" + id, {
+		method: "GET",
+	});
+	return data;
+}

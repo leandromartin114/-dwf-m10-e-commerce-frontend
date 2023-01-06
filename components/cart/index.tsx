@@ -30,6 +30,7 @@ export function Cart() {
 		router.replace(data.url, data.url, {
 			shallow: true,
 		});
+		setCart([]);
 	}
 
 	function emptyHandler() {
