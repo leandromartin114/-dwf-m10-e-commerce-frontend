@@ -3,12 +3,16 @@ import { Layout } from "ui/layout";
 import { Profile } from "components/form-profile";
 import { Title } from "ui/typography";
 import { ProfileSwitch } from "ui/profile-switch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "../../styles/profile";
 import { MyOrders } from "components/orders";
+import { useTokenValeu } from "lib/hooks";
+import { useRouter } from "next/router";
 
 export default function ProfilePage() {
 	const [active, setActive] = useState("");
+	const token = useTokenValeu();
+	const router = useRouter();
 
 	const activeA = () => {
 		setActive("A");
@@ -17,6 +21,12 @@ export default function ProfilePage() {
 	const activeB = () => {
 		setActive("B");
 	};
+
+	useEffect(() => {
+		if (!token) {
+			router.push("/signin");
+		}
+	});
 
 	return (
 		<div>
