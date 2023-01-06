@@ -4,8 +4,9 @@ import { FeaturedProducts } from "components/featured-products";
 import { SearchForm } from "components/form-search";
 import { Title } from "ui/typography";
 import { Container, MainSection } from "../styles/home";
+import { fetchFeaturedProducts } from "lib/api";
 
-export default function Home() {
+export default function Home({ featProducts }: any) {
 	return (
 		<div>
 			<Head>
@@ -21,9 +22,15 @@ export default function Home() {
 						</Title>
 						<SearchForm type='main' />
 					</MainSection>
-					<FeaturedProducts />
+					<FeaturedProducts products={featProducts} />
 				</Container>
 			</Layout>
 		</div>
 	);
+}
+
+export async function getServerSideProps() {
+	const data = await fetchFeaturedProducts();
+	const featProducts = data.results;
+	return { props: { featProducts } };
 }

@@ -84,3 +84,15 @@ export async function modifyUserData(body: any) {
 	);
 	return data;
 }
+
+export async function fetchAllProducts() {
+	const data = await fetchAPI("/products?offset=0&limit=10", { method: "GET" });
+	return data;
+}
+
+export async function fetchFeaturedProducts() {
+	const data = await fetchAPI("/products/featured?offset=0&limit=15", {
+		method: "GET",
+	});
+	return data;
+}

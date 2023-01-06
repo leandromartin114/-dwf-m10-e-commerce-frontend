@@ -22,7 +22,7 @@ export function Item({ itemId }: any) {
 				const newCart = [...cart, product];
 				setCart(newCart);
 			}
-			router.push("/cart");
+			router.push("/checkout");
 		} else {
 			router.push("/signin");
 			Swal.fire({

@@ -38,7 +38,7 @@ export function MenuDesktop({ text }: any) {
 	function handleCart() {
 		if (tokenValue) {
 			if (cartValue.length !== 0) {
-				router.push("/cart");
+				router.push("/checkout");
 			} else {
 				Swal.fire({
 					title: "¡The cart is empty!",
