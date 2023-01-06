@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Layout } from "components/layout";
+import { Layout } from "ui/layout";
 import { Cart } from "components/cart";
 
 export default function CheckoutPage() {

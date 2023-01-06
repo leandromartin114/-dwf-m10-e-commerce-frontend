@@ -66,7 +66,11 @@ export function useSearchProduct(query: string) {
 		"/search?q=" + query + "&offset=0&limit=30",
 		fetchAPI
 	);
-	return data;
+	if (data) {
+		return data;
+	} else {
+		return error;
+	}
 }
 
 export function useMe() {

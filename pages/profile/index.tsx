@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Layout } from "components/layout";
+import { Layout } from "ui/layout";
 import { Profile } from "components/form-profile";
 import { Title } from "ui/typography";
 import { ProfileSwitch } from "ui/profile-switch";

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Layout } from "components/layout";
+import { Layout } from "ui/layout";
 import { Signin } from "components/form-signin";
 import { Content } from "../../styles/signin";
 import { Title } from "ui/typography";

@@ -1,5 +1,5 @@
-import { Header } from "components/header";
-import { Footer } from "components/footer";
+import { Header } from "ui/header";
+import { Footer } from "ui/footer";
 
 export function Layout({ children }: any) {
 	return (

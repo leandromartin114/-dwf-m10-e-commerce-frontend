@@ -1,11 +1,9 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { Layout } from "components/layout";
-import { SearchProductsPage } from "components/search-products-page";
+import { Layout } from "ui/layout";
+import { SearchForm } from "components/form-search";
+import { SearchContainer } from "styles/search";
 
 export default function SearchPage() {
-	const router = useRouter();
-	const query = JSON.stringify(router.query.query);
 	return (
 		<div>
 			<Head>
@@ -14,7 +12,9 @@ export default function SearchPage() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Layout>
-				<SearchProductsPage query={query} />
+				<SearchContainer>
+					<SearchForm />
+				</SearchContainer>
 			</Layout>
 		</div>
 	);

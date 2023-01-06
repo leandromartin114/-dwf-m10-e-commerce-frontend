@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Layout } from "components/layout";
+import { Layout } from "ui/layout";
 import { Item } from "components/item";
 import { fetchItemById } from "lib/api";
 

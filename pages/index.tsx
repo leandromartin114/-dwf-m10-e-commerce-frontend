@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Layout } from "components/layout";
+import { Layout } from "ui/layout";
 import { FeaturedProducts } from "components/featured-products";
 import { SearchForm } from "components/form-search";
 import { Title } from "ui/typography";

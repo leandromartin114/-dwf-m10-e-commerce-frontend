@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Layout } from "components/layout";
+import { Layout } from "ui/layout";
 import { SearchProductsPage } from "components/search-products-page";
 
 export default function SearchQueryPage() {

@@ -1,6 +1,6 @@
 import { Container, Content } from "./styled";
 import { MenuFooter } from "components/menu-footer";
-import { SocialFooter } from "components/social-footer";
+import { SocialFooter } from "ui/social-footer";
 import { Body } from "ui/typography";
 
 export function Footer({ background = "black", text = "white" }) {

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Layout } from "components/layout";
+import { Layout } from "ui/layout";
 import { Container, Message } from "../../styles/pending";
 import { LargeText, SubTitle } from "ui/typography";
 import { BigLogoIcon } from "ui/icons";
